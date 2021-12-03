@@ -14,6 +14,8 @@ function setup() {
 function draw() {
   background(255);
 
+  console.log(handsfree.data.hands);
+
   if (handsfree.data.hands) {
     // Left hand, person #1
     let left = handsfree.data.hands.landmarksVisible[0];
@@ -25,7 +27,7 @@ function draw() {
 
     if (left && right) {
       stroke("yellow");
-      strokeWeight(3)
+      strokeWeight(3);
       for (let i = 0; i < leftPoints.length; i++) {
         line(
           width - width * leftPoints[i].x,
@@ -35,20 +37,19 @@ function draw() {
         );
       }
     }
-    
+
     noStroke();
     if (left) {
       for (let i = 0; i < leftPoints.length; i++) {
-        i % 4 ?  fill(150,150,150,150) : fill(255, 0, 255, 150);
+        i % 4 ? fill(150, 150, 150, 150) : fill(255, 0, 255, 150);
         circle(width - width * leftPoints[i].x, height * leftPoints[i].y, 30);
       }
     }
     if (right) {
       for (let i = 0; i < rightPoints.length; i++) {
-        i % 4 ?  fill(150,150,150,150) : fill(0,255,255,150);
+        i % 4 ? fill(150, 150, 150, 150) : fill(0, 255, 255, 150);
         circle(width - width * rightPoints[i].x, height * rightPoints[i].y, 30);
       }
     }
-    
   }
 }
